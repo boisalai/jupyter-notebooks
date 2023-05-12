@@ -201,6 +201,25 @@ The Map-Reduce Steps
   * All values `v'` with same key `k'` are reduced together
   * There is one Reduce function call per unique key `k'`
 
+```python
+map(key, value)
+  // key: document name; value: text of the document
+  for each word w in value:
+      emit(w, 1)
+
+reduce(key, values):
+  // key: a word; value: an iterator over counts
+  result = 0
+  for each count v in values:
+      result += v
+  emit(key, result)
+```
+
+:movie_camera: See [2 3 Scheduling and Data Flow](https://www.youtube.com/watch?v=4_Eco-v4wlI)
+
+
+
+
 
 ### Chapter 1 Data Mining
 
