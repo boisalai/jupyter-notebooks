@@ -15,15 +15,15 @@ Large-scale Supervised Machine Learning, Data streams, Mining the Web for Struct
 
 CS246 is fast paced! Requires programming maturity and strong math skills.
 
-## Introduction - MapReduce and Spark (Tue Apr 4)
+## (Apr 4) Introduction - MapReduce and Spark
 
 ### Slides
 
-See https://web.stanford.edu/class/cs246/slides/01-intro.pdf
+:clipboard: See https://web.stanford.edu/class/cs246/slides/01-intro.pdf
 
 * Course website: http://cs246.stanford.edu
 * Class textbook: Mining of Massive Datasets by A. Rajaraman, J. Ullman, and J. Leskovec. http://mmds.org
-* MOOC: www.youtube.com /channel/UC_Oao2FYkLAUlUVkBfze4jg/videos
+* MOOC: www.youtube.com/channel/UC_Oao2FYkLAUlUVkBfze4jg/videos on Youtube
 
 #### Large Scale Computing
 
@@ -126,7 +126,7 @@ Useful Librairies for Spark
 
 ### Youtube
 
-See [Distributed File Systems](https://www.youtube.com/watch?v=jDlrfBLAIuQ) on Youtube.
+:movie_camera: See [2 1 Distributed File Systems](https://www.youtube.com/watch?v=jDlrfBLAIuQ) on Youtube.
 
 Cluster Computing Challenges
 
@@ -163,20 +163,58 @@ Redundant Storage Infrastructure
   * File is split into contiguous chunks (16-64 MB)
   * Each chunk replicated (usually 2x ou 3x)
   * Try to keep replicas in different racks
-  * 
+* Master node
+  * a.k.a. Name Node in Hadoop's HDFS
+  * Stores metadata about where files are stored
+  * Might be replicated
+* Client library for file access
+  * Talks to master to find chunk servers
+  * Connects directly to chunk server to access data
+
+:movie_camera: See [2 2 The MapReduce Computational Model](https://www.youtube.com/watch?v=VEh91xTIEIU)
+
+MapReduce: Overview
+
+```bash
+words(doc.txt) | sort | uniq -c
+# or
+cat doc.txt | tr -s ' ' '\n' | tr -s '\t' '\n' | sort | uniq -c
+```
+
+* Map
+  * Scan input file record-at-a-time
+  * Extract something you care about from each record (keys)
+* Group by key
+  * Sort and Shuffle
+* Reduce
+  * Aggregate, summarize, filter or transform
+  * Write the result
+
+The Map-Reduce Steps
+
+* Input: A set of key-value pairs
+* Programmer specifies two methods
+* `Map(k, v) -> <k', v'>`
+  * Takes a key-value pair and outputs a set of key-value pairs
+  * There is one Map call for every `(k, v)` pair
+* `Reduce(k', <v'>*) -> <k', v''>*` 
+  * All values `v'` with same key `k'` are reduced together
+  * There is one Reduce function call per unique key `k'`
 
 
 ### Chapter 1 Data Mining
 
-See http://infolab.stanford.edu/~ullman/mmds/ch1n.pdf
+:orange_book: See http://infolab.stanford.edu/~ullman/mmds/ch1n.pdf
 
 ### Chapter 2 MapReduce and the New Software Stack
 
-See http://infolab.stanford.edu/~ullman/mmds/ch2n.pdf
+:orange_book: See http://infolab.stanford.edu/~ullman/mmds/ch2n.pdf
 
-## Frequent Itemsets Mining (Thu Apr 6)
+## (Apr 6) Frequent Itemsets Mining
 
 ### Slides 
+
+:clipboard: See 
 
 ### Colab
 
