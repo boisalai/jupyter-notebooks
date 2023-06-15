@@ -9,3 +9,4 @@ This repository contains various notebooks on machine learning.
 * Large Language Model (LLM)
     * [FAISS Vector Library](vector/faiss.ipynb)
     * [Chroma Vector Database](vector/chroma.ipynb)
+    * [OpenAI](prompt/openai.ipynb)
