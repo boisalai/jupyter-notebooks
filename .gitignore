@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# MLflow
+*mlartifacts* 
+*mlruns*
+*models*
+*mlflow.db*
+
+# Other
+output/
+wandb/
+*.pkl
+
+# Project
+project.md
